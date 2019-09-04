@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @buy.buyimage.url(:medium) %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @buy.buy_title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @buy.buy_description %>
+</p>
+
+<%= link_to 'Edit', edit_buy_path(@buy) %> |
+<%= link_to 'Back', buys_path %>

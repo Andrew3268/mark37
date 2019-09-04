@@ -1,0 +1,14 @@
+<%= simple_form_for(@buy) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :buyimage %>
+    <%= f.input :buy_title %>
+    <%= f.input :buy_description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

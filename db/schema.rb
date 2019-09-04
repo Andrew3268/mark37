@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190903220957) do
+ActiveRecord::Schema.define(version: 20190904004615) do
+
+  create_table "buys", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "buy_title"
+    t.text "buy_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "buyimage_file_name"
+    t.string "buyimage_content_type"
+    t.bigint "buyimage_file_size"
+    t.datetime "buyimage_updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -65,6 +77,14 @@ ActiveRecord::Schema.define(version: 20190903220957) do
     t.datetime "image_updated_at"
     t.string "slug"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "ship_title"
+    t.text "ship_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

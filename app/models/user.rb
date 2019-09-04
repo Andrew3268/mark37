@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :favorites
   has_many :posts 
+  has_many :buys
   has_many :comments, dependent: :destroy
 
   def username

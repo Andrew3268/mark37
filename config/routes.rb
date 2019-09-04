@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   get 'favorites/update'
@@ -14,5 +15,8 @@ Rails.application.routes.draw do
     # post 'comments', to: 'comments#create'
     resources :comments, only: [:create, :destroy]
   end
+
+  resources :shippings
+  resources :buys
   
 end
