@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'buy_users/buy_users'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   get 'favorites/update'
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     # post 'buycomments', to: 'buycomments#create'
     resources :buycomments, only: [:create, :destroy]
   end
-  get '/buys/iwrotes', to: 'buys#iwrotes', as: 'iwrotes'
+
 
   
 end

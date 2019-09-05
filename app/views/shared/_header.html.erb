@@ -1,77 +1,142 @@
-<header class="site-header">
-  <div class="site-toolbar">
-    <div class="container"></div>
-  </div>
-  <div class="navbar-container">
-    <div class="container">
-      <nav class="site-navbar">
-        <div class="box-left">
-          <a href="#" class="site-logo navbar-item nav_logo">Fromco</a>
-        </div>
-        <div class="box-right">
-          <ul id="primary-menu" class="main-menu navbar-nav">
-            <li id="menu-item-1811" class="menu-item current-menu-item"><a href="/">Home</a></li>
-            <li id="menu-item-1805" class="menu-item"><a href="/buys">구매대행</a></li>
-            <li id="menu-item-1805" class="menu-item"><a href="/shippings">배송대행</a></li>
-
-            
-            <!-- <li id="menu-item-1770" class="menu-item menu-item-has-children">
-              <a href="#" aria-haspopup="true" aria-expanded="false">About Us</a>
-              <ul class="sub-menu">
-                <li id="menu-item-1799" class="menu-item"><a href="#">Studio</a></li>
-                <li id="menu-item-1800" class="menu-item"><a href="#">Team</a></li>
-                <li id="menu-item-1771" class="menu-item"><a href="#">Services</a></li>
-              </ul>
-            </li> -->
-
-            <!-- <li id="menu-item-1774" class="menu-item menu-item-has-children">
-              <a href="#" aria-haspopup="true" aria-expanded="false">Level 1</a>
-              <ul class="sub-menu">
-                <li id="menu-item-1775" class="menu-item menu-item-has-children">
-                  <a href="#" aria-haspopup="true" aria-expanded="false">Level 2</a>
-                  <ul class="sub-menu">
-                    <li id="menu-item-1776" class="menu-item menu-item-has-children">
-                      <a href="#">Level 3</a>
-                      <ul class="sub-menu">
-                        <li id="menu-item-1776" class="menu-item">
-                          <a href="#" aria-haspopup="true" aria-expanded="false">Level 4</a>
-                        </li>
-                        <li id="menu-item-1801" class="menu-item"><a href="#">Level 4a</a></li>
-                        <li id="menu-item-1802" class="menu-item"><a href="#">Level 4b</a></li>
-                      </ul>
-                    </li>
-                    <li id="menu-item-1801" class="menu-item"><a href="#">Level 3a</a></li>
-                    <li id="menu-item-1802" class="menu-item"><a href="#">Level 3b</a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-1803" class="menu-item"><a href="#">Level 2a</a></li>
-                <li id="menu-item-1804" class="menu-item"><a href="#">Level 2b</a></li>
-              </ul>
-            </li> -->
-
-            <!-- <li id="menu-item-1777" class="menu-item"><a href="#">Our Work</a></li>
-            <li id="menu-item-1805" class="menu-item"><a href="#">The News</a></li>
-            <li id="menu-item-1806" class="menu-item"><a href="#">Contact Us</a></li> -->
-            <% if user_signed_in? %>
-             <li id="menu-item-1777" class="menu-item"><%= link_to "Add New Post", new_post_path %></li>
-             <li id="menu-item-1805" class="menu-item"><%= link_to "My Favorites", favorites_path %></li>
-             <li id="menu-item-1805" class="menu-item"><a href="#"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></a></li>
-            <% else %>
-             <li id="menu-item-1806" class="menu-item"><li><%= link_to "Sign In", new_user_session_path %></li></li>
-             <li id="menu-item-1806" class="menu-item"><%= link_to "Sign Up", new_user_registration_path, class: "button" %></li>
-            <% end %>
-          </ul>
-          <div class="navbar-item">
-            <a class="responsive-nav">
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
-            </a>
-          </div>
-        </div>
-      </nav>
+<nav class="flex-nav">
+  <div class="container">
+    <div class="grid">
+      <div class="column-xs-9 column-md-8">
+        <p id="logo">KOREA<span id="highlight">.</span></p>
+      </div>
+      <div class="column-xs-3 column-md-4">
+        <a href="#" class="toggle-nav">Menu <img class="menu" src="<%=asset_path 'menu.png' %>"></a>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Discover</a></li>
+          <li><a href="#">Plan Your Trip</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</header>
-<!-- overlay -->
-<div class="site-overlay"></div>
+</nav>
+<main class="intro-section">
+  <div class="container">
+    <div class="grid">
+      <div class="column-xs-12">
+        <ul class="slider">
+          <li class="slider-item active">
+            <div class="grid vertical">
+              <div class="column-xs-12 column-md-2 hide-mobile">
+                <div class="intro">
+                  <a href="#">
+                    <h1 class="title"><span class="underline">Explore Seoul</span></h1>
+                  </a>
+                </div>
+              </div>
+              <div class="column-xs-12 column-md-10">
+                <div class="image-holder">
+                  <img src="https://post-phinf.pstatic.net/MjAxODA4MjJfMTY1/MDAxNTM0OTIyMTc0NzEy.J0aCknD1DgGaD5TX3e-7Bvhn8hQUkjzSYaGdxY3wkUUg.BtGdGzY9wmCdI92D47jGoWrFpH-D81h3BQQ7LirWmvQg.JPEG/%EA%B2%BD%EB%B3%B5%EA%B6%81_%EC%95%BC%EA%B2%BD%ED%88%AC%EC%96%B4_%285%29.jpg?type=w1200">
+                </div>
+                <div class="grid">
+                  <div class="column-xs-12 column-md-9">
+                    <div class="intro show-mobile">
+                      <a href="#">
+                        <h1 class="title"><span class="underline">Explore Tokyo</span></h1>
+                      </a>
+                    </div>
+                    <p class="description">Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="slider-item">
+            <div class="grid vertical">
+              <div class="column-xs-12 column-md-2 hide-mobile">
+                <div class="intro">
+                  <a href="#">
+                    <h1 class="title"><span class="underline">Explore Kyoto</span></h1>
+                  </a>
+                </div>
+              </div>
+              <div class="column-xs-12 column-md-10">
+                <div class="image-holder">
+                  <img src="https://source.unsplash.com/Pz3EHf-KJfc">
+                </div>
+                <div class="grid">
+                  <div class="column-xs-12 column-md-9">
+                    <div class="intro show-mobile">
+                      <a href="#">
+                        <h1 class="title"><span class="underline">Explore Kyoto</span></h1>
+                      </a>
+                    </div>
+                    <p class="description">Kyoto is famous for its numerous classical Buddhist temples, gardens, imperial palaces, Shinto shrines and traditional wooden houses.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="slider-item">
+            <div class="grid vertical">
+              <div class="column-xs-12 column-md-2 hide-mobile">
+                <div class="intro">
+                  <a href="#">
+                     <h1 class="title"><span class="underline">Explore Osaka</span></h1>
+                  </a>
+                </div>
+              </div>
+              <div class="column-xs-12 column-md-10">
+                <div class="image-holder">
+                  <img src="https://source.unsplash.com/peYW3VwICpE">
+                </div>
+                <div class="grid">
+                  <div class="column-xs-12 column-md-9">
+                    <div class="intro show-mobile">
+                      <a href="#">
+                        <h1 class="title"><span class="underline">Explore Osaka</span></h1>
+                      </a>
+                    </div>
+                    <p class="description">Osaka is a large port city and commercial center known for its modern architecture, nightlife and hearty street food.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="slider-item">
+            <div class="grid vertical">
+              <div class="column-xs-12 column-md-2 hide-mobile">
+                <div class="intro">
+                  <a href="#">
+                    <h1 class="title"><span class="underline">Explore Hokkaido</span></h1>
+                  </a>
+                </div>
+              </div>
+              <div class="column-xs-12 column-md-10">
+                <div class="image-holder">
+                  <img src="https://source.unsplash.com/VmeOZQjTVGE">
+                </div>
+                <div class="grid">
+                  <div class="column-xs-12 column-md-9">
+                    <div class="intro show-mobile">
+                      <a href="#">
+                        <h1 class="title"><span class="underline">Explore Hokkaido</span></h1>
+                      </a>
+                    </div>
+                    <p class="description">Hokkaido, the northernmost of Japan’s main islands, is known for its volcanoes, natural hot springs ("onsen") and ski areas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      <div class="grid">
+        <div class="column-xs-12">
+          <div class="controls">
+              <button class="previous">
+                <img class="arrow_left" src="<%=asset_path 'arrow_left.png' %>">
+              </a>
+              <button class="next">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>

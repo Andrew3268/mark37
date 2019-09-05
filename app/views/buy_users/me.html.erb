@@ -28,20 +28,22 @@
     <% end %>
 
     <h1>Buys</h1>
-    <a href="/buy_users/me">My Order</a>
+    <a href="/buy_users/buy_users">My Order</a>
     <br />
     <br />
 
 
     <% @buys.each do |buy| %>
-        <%= link_to (image_tag buy.buyimage.url(:small)), buy %>
-        <h2><%= link_to buy.buy_title, buy %></h2>
-        <p><%= buy.user.name %></p>
-        <p><%= buy.buy_description %></p>
-        <%= link_to 'Show', buy %>
-        <%= link_to 'Edit', edit_buy_path(buy) %>
-        <%= link_to 'Destroy', buy, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= pluralize(buy.buycomments.count, "Comment") %>
+        <% if current_user && current_user == buy.user %>
+          <%= link_to (image_tag buy.buyimage.url(:small)), buy %>
+          <h2><%= link_to buy.buy_title, buy %></h2>
+          <p><%= buy.user.name %></p>
+          <p><%= buy.buy_description %></p>
+          <%= link_to 'Show', buy %>
+          <%= link_to 'Edit', edit_buy_path(buy) %>
+          <%= link_to 'Destroy', buy, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= pluralize(buy.buycomments.count, "Comment") %>
+        <% end %>
         <br />
         <br />
         <br />
