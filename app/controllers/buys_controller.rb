@@ -1,21 +1,27 @@
 class BuysController < ApplicationController
-  before_action :set_buy, only: [:show, :edit, :update, :destroy]
+  before_action :set_buy, only: [:show, :edit, :update, :destroy, :iwrotes]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /buys
   # GET /buys.json
   def index
-    @buys = Buy.all
+    @buys = Buy.all.order("created_at DESC")
   end
 
   # GET /buys/1
   # GET /buys/1.json
   def show
+    @buycomment = Buycomment.new
+    @buycomments = @buy.buycomments.order("created_at DESC")
   end
 
   # GET /buys/new
   def new
     @buy = current_user.buys.build
+  end
+
+  def iwrotes
+    @buys = Buy.all.order("created_at DESC")
   end
 
   # GET /buys/1/edit

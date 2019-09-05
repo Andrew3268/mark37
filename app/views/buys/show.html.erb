@@ -14,3 +14,18 @@
 
 <%= link_to 'Edit', edit_buy_path(@buy) %> |
 <%= link_to 'Back', buys_path %>
+
+<% if current_user %>
+  <%= form_with model: [@buy, @buycomment] do |f| %>
+    <%= f.text_field :buybody, id: "buycomment_body" %>
+    <%= f.submit "Comment" %>
+  <% end %>
+<% else %>
+  <p>You need to <%= link_to "Login", new_user_session_path %> before you can comment!</p>
+<% end %>
+
+<div id="buycomment_pane">
+  <% @buycomments.each do |buycomment| %>
+    <%= render 'buycomments/buycomment', buycomment: buycomment %>
+  <% end %>
+</div>

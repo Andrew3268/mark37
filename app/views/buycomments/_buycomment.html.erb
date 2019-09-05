@@ -1,0 +1,10 @@
+<div id="buycomment-<%= buycomment.id %>">
+  [<%= buycomment.created_at.strftime("%I:%M %p") %>] 
+  <%= buycomment.user.username %>
+  <% if current_user && current_user == buycomment.user || current_user.admin? %>
+    <%= link_to "Delete", buy_buycomment_path(@buy, buycomment), method: :delete, remote: true %>
+  <% end %>
+  <%= buycomment.buybody %>
+  <hr />
+  <br />
+</div>

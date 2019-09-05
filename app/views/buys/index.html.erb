@@ -2,44 +2,59 @@
   <%= render 'shared/header' %>
   <div class="wrap">
     <!-- <p id="notice"><%= notice %></p> -->
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <%= link_to 'New Buy', new_buy_path %> 
+    <br />
+    <br />
+    <br />
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <% if user_signed_in? %>
+      Hello, <%= current_user.name %><br />
+      How are you TODAY? :D
+    <% else %>
+      Welcome Everyone :D
+    <% end %>
+    
+    <% if current_user.try(:admin?) %>
+      <p>You Are Admin</p>
+    <% end %>
 
     <h1>Buys</h1>
+    <%= link_to 'My Order', iwrotes_path(@buy) %>
+    <br />
+    <br />
 
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <% @buys.each do |buy| %>
-          <tr>
-            <td><%= link_to (image_tag buy.buyimage.url(:small)), buy %></td>
-            <td><%= buy.buy_title %></td>
-            <td><p><%= buy.user.name %></p></td>
-            <td><%= buy.buy_description %></td>
-            <td><%= link_to 'Show', buy %></td>
-            <td><%= link_to 'Edit', edit_buy_path(buy) %></td>
-            <td><%= link_to 'Destroy', buy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Buy', new_buy_path %>
+    <% @buys.each do |buy| %>
+        <%= link_to (image_tag buy.buyimage.url(:small)), buy %>
+        <h2><%= link_to buy.buy_title, buy %></h2>
+        <p><%= buy.user.name %></p>
+        <p><%= buy.buy_description %></p>
+        <%= link_to 'Show', buy %>
+        <%= link_to 'Edit', edit_buy_path(buy) %>
+        <%= link_to 'Destroy', buy, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= pluralize(buy.buycomments.count, "Comment") %>
+        <br />
+        <br />
+        <br />
+    <% end %>
+   
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </div>

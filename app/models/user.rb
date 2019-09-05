@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :posts 
   has_many :buys
   has_many :comments, dependent: :destroy
+  has_many :buycomments, dependent: :destroy
 
   def username
     return email.split('@')[0].capitalize

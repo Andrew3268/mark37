@@ -1,0 +1,2 @@
+module BuycommentsHelper
+end
